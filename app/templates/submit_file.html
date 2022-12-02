@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href={{ url_for("static", filename="css/bootstrap.min.css") }}>  
+    <title>Main</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <form method="POST" action="/submit_file" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <div class="text-center">
+                <h3>Name class</h3>
+                {{ form.name.label() }} {{ form.name(size=20) }}
+                <h3>File</h3>
+                {{ form.file.label }} {{ form.file(size=10, multiple='true') }}
+                {{ form.submit }}
+            </div>  
+        </form>
+    </div>
+</body>
